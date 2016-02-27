@@ -4,7 +4,7 @@ import sbt._
 import sbt.Keys._
 import com.typesafe.sbt.proguard.Merge
 
-object SbtProguard extends Plugin {
+object SbtProguard extends AutoPlugin {
 
   val Proguard = config("proguard").hide
 
@@ -31,8 +31,10 @@ object SbtProguard extends Plugin {
     val mergeStrategies       = TaskKey[Seq[Strategy]]("merge-strategies")
     val mergedInputs          = TaskKey[Seq[Filtered]]("merged-inputs")
     val options               = TaskKey[Seq[String]]("options")
-    val proguard              = TaskKey[Seq[File]]("proguard")
+    val proguard              = TaskKey[Seq[File]]("proguardP")
   }
+
+  val autoImport = ProguardKeys
 
   lazy val proguardSettings: Seq[Setting[_]] = inConfig(Proguard)(ProguardSettings.default) ++ ProguardSettings.dependencies
 
