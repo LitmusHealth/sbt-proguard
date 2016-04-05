@@ -1,10 +1,12 @@
 
 sbtPlugin := true
 
-organization := "com.typesafe.sbt"
+organization := "litmushealth"
 
 name := "sbt-proguard"
 
-version := "0.2.3-SNAPSHOT"
+version := "0.2.3"
 
-publishMavenStyle := false
+bintrayOrganization := Some("litmushealth")
+
+bintrayOmitLicense := true
